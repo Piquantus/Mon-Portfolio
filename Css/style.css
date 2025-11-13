@@ -1,5 +1,5 @@
 /* ===================== */
-/*        GLOBAL         */
+/* GLOBAL         */
 /* ===================== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,7 +21,7 @@ a:hover {
 }
 
 /* ===================== */
-/*        HEADER         */
+/* HEADER         */
 /* ===================== */
 header {
     background: #1a1a1a;
@@ -52,7 +52,7 @@ nav a:hover {
 }
 
 /* ===================== */
-/*        SECTIONS       */
+/* SECTIONS       */
 /* ===================== */
 section {
     padding: 2rem;
@@ -60,11 +60,17 @@ section {
     margin: auto;
 }
 
+section h2 {
+    color: #00ffd5;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    text-shadow: 0 0 5px #00ffd5;
+    border-bottom: 1px solid #00ffd5;
+}
+
 section strong {
     cursor: pointer;
-    font-size: 1.5em;
-    margin: 10px 0;
-    padding: 10px;
+    font-size: 1.1em; /* Ajusté pour moins d'agressivité */
     color: #00ffd5;
     text-shadow: 0 0 3px #00ffd5;
 }
@@ -74,7 +80,7 @@ section strong {
 }
 
 /* ===================== */
-/*         CODE          */
+/* CODE          */
 /* ===================== */
 code {
     background: #1e1e1e;
@@ -85,7 +91,7 @@ code {
 }
 
 /* ===================== */
-/*     TOGGLE CONTENT    */
+/* TOGGLE CONTENT    */
 /* ===================== */
 section .content {
     display: none;
@@ -104,7 +110,7 @@ section .content.active {
 }
 
 /* ===================== */
-/*         FOOTER        */
+/* FOOTER        */
 /* ===================== */
 footer {
     background: #1a1a1a;
@@ -116,88 +122,67 @@ footer {
 }
 
 /* ===================== */
-/*       PROJECTS        */
+/* PROJECTS        */
 /* ===================== */
-.projects {
-padding: 20px;
-}
-
-.project-list {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 20px;
-}
-
-.project-card {
-background: #f8f8f8;
-border-radius: 12px;
-padding: 20px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.project-card a {
-text-decoration: none;
-color: inherit;
-display: block;
-}
-
-.project-card h3 {
-margin-top: 0;
-margin-bottom: 10px;
-}
-
-.project-card p {
-margin: 0;
-color: #555;
-}
-/* 
-.projects h2,
-.projects h3 {
+.projects h1 {
     color: #00ffd5;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
-    text-shadow: 0 0 3px #00ffd5;
-    border-bottom: 1px solid #00ffd5;
+    text-shadow: 0 0 5px #00ffd5;
+    text-align: center;
 }
 
-.projects ul {
-    list-style: none;
-    padding-left: 0;
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
 }
 
-.projects li {
-    margin-bottom: 2rem;
+.game-card {
+    background: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
-.projects a {
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 255, 213, 0.15); /* Effet néon subtil au survol */
+}
+
+.game-card h2 {
     color: #00ffd5;
-    text-decoration: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-shadow: none;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
 }
 
-.projects a:hover {
-    text-decoration: underline;
-    color: #ff00aa;
-}
-*/
-/* ===================== */
-/*       MEDIA           */
-/* ===================== */
-video, img {
-    display: block;
-    margin-top: 1rem;
-    border: 2px solid #333;
-    border-radius: 8px;
+.game-card p {
+    color: #ccc;
+    margin-bottom: 15px;
 }
 
-video:hover, img:hover {
-    border-color: #00ffd5;
+.game-card iframe {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #00ffd5; /* Bordure qui met l'accent sur l'iframe */
+    border-radius: 5px;
 }
+
+.more-link {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Styles existants pour les images et vidéos */
+/* ... (Les styles .projects img, .projects video, .image-gallery restent les mêmes) */
 
 .projects img {
     width: 100%;
@@ -233,8 +218,9 @@ video:hover, img:hover {
     cursor: pointer;
 } 
 
+
 /* ===================== */
-/*     SOCIAL MEDIA      */
+/* SOCIAL MEDIA      */
 /* ===================== */
 .social-media {
     display: flex;
@@ -272,7 +258,7 @@ video:hover, img:hover {
 .github { background-color: #0f0f0f; }
 
 /* ===================== */
-/*         MENU          */
+/* MENU          */
 /* ===================== */
 .menu {
     width: 300px;
@@ -310,7 +296,7 @@ video:hover, img:hover {
 }
 
 /* ===================== */
-/*      FULLSCREEN IMG   */
+/* FULLSCREEN IMG   */
 /* ===================== */
 .fullscreen {
     position: fixed;
@@ -342,7 +328,7 @@ video:hover, img:hover {
 }
 
 /* ===================== */
-/*      RESPONSIVE       */
+/* RESPONSIVE       */
 /* ===================== */
 @media only screen and (max-width: 768px) {
     .menu {
