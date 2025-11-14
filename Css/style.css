@@ -1,40 +1,60 @@
-/* ===================== */
-/* GLOBAL         */
-/* ===================== */
+/* ================================================================= */
+/* IMPORT FONT (NÉCESSITE UN LIEN DANS VOTRE HTML)            */
+/* ================================================================= */
+/* Recommandé : Ajoutez <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> à votre <head> */
+
+/* ================================================================= */
+/* GLOBAL & TYPOGRAPHY                                        */
+/* ================================================================= */
+:root {
+    --bg-color: #0A0A0A;         /* Fond noir très sombre */
+    --surface-color: #1A1A1A;    /* Couleurs des cartes/surfaces */
+    --accent-color: #48BB78;     /* Vert éclatant pour l'accentuation */
+    --text-color: #E2E8F0;       /* Texte clair */
+    --text-secondary: #A0AEC0;   /* Texte secondaire/détails */
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0f0f0f;
-    color: #e0e0e0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Sélection de texte */
+::selection {
+    background: var(--accent-color);
+    color: var(--bg-color);
 }
 
 a {
-    color: #00ffd5;
+    color: var(--accent-color);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease-in-out;
 }
 
 a:hover {
-    color: #ff00aa;
+    color: #38A169; /* Une nuance plus foncée au survol */
 }
 
-/* ===================== */
-/* HEADER         */
-/* ===================== */
+/* ================================================================= */
+/* HEADER & NAVIGATION                                        */
+/* ================================================================= */
 header {
-    background: #1a1a1a;
-    color: #00ffd5;
+    background: var(--surface-color);
     padding: 1rem 0;
     text-align: center;
-    border-bottom: 2px solid #00ffd5;
+    border-bottom: 1px solid rgba(72, 187, 120, 0.2); /* Ligne subtile */
 }
 
 header h1 {
     margin: 0;
     font-size: 2rem;
-    text-shadow: 0 0 5px #00ffd5;
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(72, 187, 120, 0.3);
 }
 
 nav {
@@ -42,186 +62,180 @@ nav {
 }
 
 nav a {
-    color: #00ffd5;
+    color: var(--text-color);
     margin: 0 1rem;
-    font-weight: bold;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
 }
 
-nav a:hover {
-    color: #ff00aa;
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
-/* ===================== */
-/* SECTIONS       */
-/* ===================== */
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* ================================================================= */
+/* SECTIONS & TITRES                                          */
+/* ================================================================= */
 section {
-    padding: 2rem;
+    padding: 4rem 2rem; /* Plus d'espace vertical */
     max-width: 1000px;
     margin: auto;
 }
 
-section h2 {
-    color: #00ffd5;
+section h1, section h2 {
+    color: var(--text-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    margin-top: 2rem;
-    text-shadow: 0 0 5px #00ffd5;
-    border-bottom: 1px solid #00ffd5;
+    position: relative;
 }
 
-section strong {
-    cursor: pointer;
-    font-size: 1.1em; /* Ajusté pour moins d'agressivité */
-    color: #00ffd5;
-    text-shadow: 0 0 3px #00ffd5;
-}
-
-.about, .projects, .contact {
-    margin-bottom: 2rem;
-}
-
-/* ===================== */
-/* CODE          */
-/* ===================== */
-code {
-    background: #1e1e1e;
-    color: #00ffd5;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: "Courier New", Courier, monospace;
-}
-
-/* ===================== */
-/* TOGGLE CONTENT    */
-/* ===================== */
-section .content {
-    display: none;
-    padding: 1rem;
-    background-color: #1c1c1c;
-    border: 1px solid #333;
-    border-radius: 5px;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    max-height: 0;
-    overflow: hidden;
-}
-
-section .content.active {
+section h2::after {
+    content: '';
     display: block;
-    max-height: 2000px;
+    width: 50px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin-top: 10px;
 }
 
-/* ===================== */
-/* FOOTER        */
-/* ===================== */
-footer {
-    background: #1a1a1a;
-    color: #aaa;
-    text-align: center;
-    padding: 0.5rem 0;
-    text-shadow: 0 0 2px #00ffd5;
-    border-top: 2px solid #00ffd5;
+.profile p {
+    color: var(--text-secondary);
 }
 
-/* ===================== */
-/* PROJECTS        */
-/* ===================== */
+/* Styles pour les listes de premier niveau (blocs) */
+.skills ul, .education ul, .experience ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills li, .education li, .experience li {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 15px;
+    /* CHANGEMENT ICI : Augmentation de l'espace en bas pour "sauter une ligne" */
+    margin-bottom: 25px; /* Équivalent à peu près à 1.5 lignes de hauteur de texte */
+    border-left: 5px solid var(--accent-color);
+}
+
+/* ================================================================= */
+/* LISTES IMBRIQUÉES DANS FORMATION/EXPÉRIENCE */
+/* ================================================================= */
+
+.experience li ul,
+.education li ul {
+    list-style-type: disc; /* Points noirs pour la liste interne */
+    padding-left: 20px; /* Indentation */
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.experience li ul li,
+.education li ul li {
+    /* Rénitialisation des styles pour faire de l'élément une simple ligne dans le bloc */
+    background-color: transparent; /* Supprime le fond de la liste principale */
+    border-left: none; /* Supprime la bordure verte */
+    border-radius: 0;
+    padding: 5px 0; /* Espacement minimal */
+    margin-bottom: 5px;
+    list-style-type: disc; /* S'assure que le point est bien visible */
+    color: var(--text-secondary); /* Couleur pour le détail */
+}
+
+/* ================================================================= */
+/* PROJECTS (MES JEUX)                                        */
+/* ================================================================= */
+
 .projects h1 {
-    color: #00ffd5;
-    text-shadow: 0 0 5px #00ffd5;
     text-align: center;
+    color: var(--text-color);
 }
 
 .games-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     padding: 20px 0;
 }
 
 .game-card {
-    background: #1c1c1c;
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background: var(--surface-color);
+    border: 1px solid rgba(72, 187, 120, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    position: relative;
 }
 
 .game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 255, 213, 0.15); /* Effet néon subtil au survol */
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(72, 187, 120, 0.15);
 }
 
 .game-card h2 {
-    color: #00ffd5;
+    color: var(--accent-color);
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    text-shadow: none;
-    border-bottom: 1px solid #333;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    border-bottom: 1px solid rgba(72, 187, 120, 0.2);
     padding-bottom: 10px;
 }
 
+.game-card h2::after {
+    content: none; /* Supprimer la ligne de h2 de section */
+}
+
 .game-card p {
-    color: #ccc;
+    color: var(--text-secondary);
     margin-bottom: 15px;
+    font-size: 0.95rem;
 }
 
 .game-card iframe {
     width: 100%;
     margin-top: 10px;
-    border: 1px solid #00ffd5; /* Bordure qui met l'accent sur l'iframe */
+    border: none;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .more-link {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 50px;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 600;
 }
 
-/* Styles existants pour les images et vidéos */
-/* ... (Les styles .projects img, .projects video, .image-gallery restent les mêmes) */
 
-.projects img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
-    margin: 0.5rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+/* ================================================================= */
+/* FOOTER & SOCIAL MEDIA                                      */
+/* ================================================================= */
+footer {
+    background: var(--surface-color);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(72, 187, 120, 0.2);
 }
 
-.projects img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 255, 213, 0.2);
-}
-
-.projects video {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
-}
-
-.image-gallery {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.image-gallery img {
-    width: calc(50% - 1rem);
-    max-width: 1000px;
-    cursor: pointer;
-} 
-
-
-/* ===================== */
-/* SOCIAL MEDIA      */
-/* ===================== */
 .social-media {
     display: flex;
     gap: 20px;
@@ -234,113 +248,109 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    color: white;
-    width: 50px;
-    height: 50px;
+    color: var(--text-color);
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    background-color: #333;
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-secondary);
 }
 
 .social-icon:hover {
     transform: scale(1.1);
-    background-color: #00ffd5;
-    color: #0f0f0f;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
 }
 
 .social-icon i {
     font-size: 25px;
 }
 
-.twitter { background-color: #1da1f2; }
-.instagram { background-color: #e4405f; }
-.linkedin { background-color: #0077b5; }
-.github { background-color: #0f0f0f; }
+/* Couleurs spécifiques - adaptées pour l'esthétique générale */
+.twitter { background-color: #1a1a1a; }
+.instagram { background-color: #1a1a1a; }
+.linkedin { background-color: #1a1a1a; }
+.github { background-color: #1a1a1a; }
 
-/* ===================== */
-/* MENU          */
-/* ===================== */
-.menu {
-    width: 300px;
-    margin: 50px auto;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background-color: #1c1c1c;
-    color: #e0e0e0;
+
+/* ================================================================= */
+/* UTILITAIRES & RESPONSIVE (Styles conservés et ajustés)     */
+/* ================================================================= */
+
+code {
+    background: #1e1e1e;
+    color: var(--accent-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
 }
 
-.menu-item {
-    border-bottom: 1px solid #444;
-}
-
-.menu-item:last-child {
-    border-bottom: none;
-}
-
+/* Styles pour le menu déroulant (si utilisé) */
 .menu-title {
-    margin: 0;
-    padding: 15px;
-    background-color: #1e1e1e;
-    cursor: pointer;
-    user-select: none;
+    background-color: var(--surface-color) !important;
+    color: var(--text-color) !important;
 }
-
 .menu-title:hover {
-    background-color: #2a2a2a;
+    background-color: #2a2a2a !important;
 }
 
-.menu-content {
-    display: none;
-    padding: 15px;
-    background-color: #222;
-}
-
-/* ===================== */
-/* FULLSCREEN IMG   */
-/* ===================== */
+/* FULLSCREEN IMG */
 .fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.98);
 }
-
 #fullscreen-image {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    box-shadow: 0 0 15px rgba(0, 255, 213, 0.3);
+    box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
-
-/* ===================== */
-/* RESPONSIVE       */
-/* ===================== */
+/* RESPONSIVE */
 @media only screen and (max-width: 768px) {
-    .menu {
-        width: 90%;
+    section {
+        padding: 3rem 1rem;
     }
 
-    .image-gallery img {
-        width: 100%;
+    .game-card {
+        padding: 20px;
     }
 
     nav a {
         display: block;
         margin: 0.5rem 0;
     }
+
+    nav a::after {
+        content: none;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+}
+
+/* ================================================================= */
+/* MODÈLES 3D & IMAGES DE PRÉVISUALISATION                    */
+/* ================================================================= */
+
+/* Assure que l'élément model-viewer s'intègre parfaitement */
+model-viewer {
+    box-shadow: 0 0 10px rgba(72, 187, 120, 0.2); 
+    /* Le style height: 350px est défini dans le HTML pour une hauteur fixe */
+}
+
+/* Style les images statiques à l'intérieur des cartes pour correspondre à la hauteur du visualiseur */
+.image-card .model-preview-img {
+    width: 100%;
+    height: 350px; /* Fixe la hauteur pour correspondre au model-viewer */
+    object-fit: cover; /* Assure que l'image couvre l'espace sans être déformée */
+    border-radius: 8px; /* Correspond au bord arrondi des autres cartes */
+    margin-top: 10px; /* Espace après la description */
+    transition: none; /* Désactive les transitions inutiles sur l'image */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Règle pour l'harmonisation des titres des cartes images */
+.image-card h2 {
+    color: var(--text-color); /* Titre de l'image en blanc pour le différencier de l'accentuation 3D */
+    border-bottom: 1px solid var(--text-secondary);
 }
