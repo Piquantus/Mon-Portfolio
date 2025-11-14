@@ -296,14 +296,6 @@ code {
     background-color: #2a2a2a !important;
 }
 
-/* FULLSCREEN IMG */
-.fullscreen {
-    background-color: rgba(0, 0, 0, 0.98);
-}
-#fullscreen-image {
-    box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
-}
-
 /* RESPONSIVE */
 @media only screen and (max-width: 768px) {
     section {
@@ -353,4 +345,41 @@ model-viewer {
 .image-card h2 {
     color: var(--text-color); /* Titre de l'image en blanc pour le différencier de l'accentuation 3D */
     border-bottom: 1px solid var(--text-secondary);
+}
+
+/* ================================================================= */
+/* FULLSCREEN IMG                                             */
+/* ================================================================= */
+.fullscreen {
+    position: fixed; /* Assure que le conteneur reste fixe même en faisant défiler */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.98); /* Fond très sombre */
+    display: none; /* Caché par défaut, affiché par JavaScript */
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Valeur très élevée pour être sûr qu'il couvre tout */
+}
+
+#fullscreen-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* L'image est contenue dans le conteneur sans être coupée */
+    box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: var(--accent-color);
 }

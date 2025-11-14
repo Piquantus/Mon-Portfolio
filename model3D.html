@@ -13,28 +13,30 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="Js/script.js" defer></script> 
 </head>
 
 <div id="header-placeholder"></div>
-
-<script>
-fetch("Pages/header.html")
-    .then(response => response.text())
-    .then(data => {
-    document.getElementById("header-placeholder").innerHTML = data;
-    });
-</script>
 
 <body>    
     <main>
         <section class="projects">
             <h1>Mes Modèles 3D</h1>
+
+            <p>
+            <b>
+                <center>
+                    Voici un aperçu de mes réalisations Blender.
+                </center>
+            </b>
+            </p>
             
             <div class="games-container" id="model-gallery">
                 
                 <div class="game-card model-card">
-                    <h2>Collection Bunker (Intérieur)</h2>
-                    <p>Modèle d'environnement d'intérieur d'un bunker. <br>Exportable Unity / Texture procédurale </p>
+                    <h2>Collection Donjon (Intérieur)</h2>
+                    <p>Modèle d'environnement d'intérieur de donjon. Le fichier GLB est chargé, permettant la rotation et l'inspection en 3D dans le navigateur.</p>
                     
                     <model-viewer 
                         src="Assets/Modélisation/Collection_Donjon_Int.glb"             
@@ -43,19 +45,23 @@ fetch("Pages/header.html")
                         camera-controls 
                         touch-action="pan-y"
                         auto-rotate 
-                        poster="Assets/Modélisation/Images/InterieurDemoDongon.png" style="width: 100%; height: 350px; background-color: #1a1a1a; border-radius: 8px;"
+                        poster="Assets/Modélisation/Images/InterieurDemoDongon.png" 
+                        style="width: 100%; height: 350px; background-color: #1a1a1a; border-radius: 8px;"
                     ></model-viewer>
                 </div>
                 
                 <div class="game-card image-card">
                     <h2>Rendu Statique (Intérieur)</h2>
                     <p>Capture d'écran de l'environnement, utilisée comme aperçu pour le chargement du modèle 3D.</p>
-                    <img src="Assets/Modélisation/Images/InterieurDemoDongon.png" alt="Vue détaillée de l'intérieur de la salle de donjon" class="model-preview-img">
+                    <img src="Assets/Modélisation/Images/InterieurDemoDongon.png" 
+                         alt="Vue détaillée de l'intérieur de la salle de donjon" 
+                         class="model-preview-img"
+                         onclick="openFullscreen(this)" style="cursor: pointer;"> 
                 </div>
                 
                 <div class="game-card model-card">
-                    <h2>Collection Bunker (Extérieur)</h2>
-                    <p>Modèle d'environnement d'extérieur d'un bunker. <br>Exportable Unity</p>
+                    <h2>Collection Donjon (Extérieur)</h2>
+                    <p>Modèle d'environnement d'extérieur de donjon, prêt pour l'intégration dans un moteur de jeu (Unity, Unreal).</p>
                     
                     <model-viewer 
                         src="Assets/Modélisation/Collection_Donjon_Ext.glb" 
@@ -72,20 +78,21 @@ fetch("Pages/header.html")
                 <div class="game-card image-card">
                     <h2>Rendu Statique (Extérieur)</h2>
                     <p>Capture d'écran de l'environnement, mettant en valeur l'assemblage et les textures.</p>
-                    <img src="Assets/Modélisation/Images/ExterieurDemoDongon.png" alt="Vue détaillée de l'extérieur du couloir de donjon" class="model-preview-img">
+                    <img src="Assets/Modélisation/Images/ExterieurDemoDongon.png" 
+                         alt="Vue détaillée de l'extérieur du couloir de donjon" 
+                         class="model-preview-img"
+                         onclick="openFullscreen(this)" style="cursor: pointer;">
                 </div>
                 
             </div>
         </section>
     </main>
+    
+    <div id="fullscreen-container" class="fullscreen" style="display: none;">
+        <span class="close" onclick="closeFullscreen()">&times;</span>
+        <img id="fullscreen-image" src="" alt="Image en plein écran">
+    </div>
 </body>
 
 <div id="footer-placeholder"></div>
-<script>
-    fetch("Pages/footer.html")
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-        });
-</script>
 </html>
