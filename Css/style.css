@@ -1,32 +1,33 @@
 /* ================================================================= */
 /* IMPORT FONT (NÉCESSITE UN LIEN DANS VOTRE HTML)            */
 /* ================================================================= */
-/* Recommandé : Ajoutez <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> à votre <head> */
+/* Recommandé : Ajoutez <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> à votre <head> */
 
 /* ================================================================= */
 /* GLOBAL & TYPOGRAPHY                                        */
 /* ================================================================= */
 :root {
-    --bg-color: #0A0A0A;         /* Fond noir très sombre */
-    --surface-color: #1A1A1A;    /* Couleurs des cartes/surfaces */
-    --accent-color: #48BB78;     /* Vert éclatant pour l'accentuation */
-    --text-color: #E2E8F0;       /* Texte clair */
-    --text-secondary: #A0AEC0;   /* Texte secondaire/détails */
+    --bg-color: #FFFFFF;         /* Fond blanc */
+    --surface-color: #F8F9FA;    /* Gris très clair pour les surfaces */
+    --accent-color: #007BFF;     /* Bleu vif pour l'accentuation principale */
+    --secondary-accent-color: #E83E8C; /* Rose pour les accents secondaires */
+    --text-color: #212529;       /* Texte noir/gris foncé */
+    --text-secondary: #6C757D;   /* Texte secondaire/gris */
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.7;
     scroll-behavior: smooth;
 }
 
 /* Sélection de texte */
 ::selection {
-    background: var(--accent-color);
+    background: var(--secondary-accent-color);
     color: var(--bg-color);
 }
 
@@ -34,27 +35,29 @@ a {
     color: var(--accent-color);
     text-decoration: none;
     transition: color 0.3s ease-in-out;
+    font-weight: 600;
 }
 
 a:hover {
-    color: #38A169; /* Une nuance plus foncée au survol */
+    color: #0056b3; /* Un bleu plus foncé au survol */
 }
 
 /* ================================================================= */
 /* HEADER & NAVIGATION                                        */
 /* ================================================================= */
 header {
-    background: var(--surface-color);
-    padding: 1rem 0;
+    background: var(--bg-color);
+    padding: 1.5rem 0;
     text-align: center;
-    border-bottom: 1px solid rgba(72, 187, 120, 0.2); /* Ligne subtile */
+    border-bottom: 1px solid #DEE2E6; /* Ligne de séparation subtile */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--accent-color);
-    text-shadow: 0 0 5px rgba(72, 187, 120, 0.3);
+    font-weight: 700;
 }
 
 nav {
@@ -63,23 +66,24 @@ nav {
 
 nav a {
     color: var(--text-color);
-    margin: 0 1rem;
-    font-weight: 600;
+    margin: 0 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     position: relative;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
+    font-size: 0.9rem;
 }
 
 nav a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 3px;
     bottom: 0;
     left: 50%;
-    background-color: var(--accent-color);
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent-color));
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    border-radius: 2px;
 }
 
 nav a:hover::after {
@@ -91,35 +95,37 @@ nav a:hover::after {
 /* SECTIONS & TITRES                                          */
 /* ================================================================= */
 section {
-    padding: 4rem 2rem; /* Plus d'espace vertical */
+    padding: 5rem 2rem;
     max-width: 1000px;
     margin: auto;
 }
 
 section h1, section h2 {
     color: var(--text-color);
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     text-align: left;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.8rem;
     position: relative;
 }
 
 section h2::after {
     content: '';
     display: block;
-    width: 50px;
+    width: 60px;
     height: 4px;
-    background-color: var(--accent-color);
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent-color));
     margin-top: 10px;
+    border-radius: 2px;
 }
 
 .profile p {
     color: var(--text-secondary);
+    font-size: 1.1rem;
 }
 
-/* Styles pour les listes de premier niveau (blocs) */
+/* Styles pour les listes */
 .skills ul, .education ul, .experience ul {
     list-style: none;
     padding-left: 0;
@@ -127,11 +133,11 @@ section h2::after {
 
 .skills li, .education li, .experience li {
     background-color: var(--surface-color);
-    border-radius: 8px;
-    padding: 15px;
-    /* CHANGEMENT ICI : Augmentation de l'espace en bas pour "sauter une ligne" */
-    margin-bottom: 25px; /* Équivalent à peu près à 1.5 lignes de hauteur de texte */
-    border-left: 5px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent-color); /* Bordure bleue */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* ================================================================= */
@@ -140,23 +146,29 @@ section h2::after {
 
 .experience li ul,
 .education li ul {
-    list-style-type: disc; /* Points noirs pour la liste interne */
-    padding-left: 20px; /* Indentation */
-    margin-top: 10px;
-    margin-bottom: 0;
+    list-style-type: '✓'; /* Icône de coche */
+    padding-left: 20px;
+    margin-top: 15px;
 }
 
 .experience li ul li,
 .education li ul li {
-    /* Rénitialisation des styles pour faire de l'élément une simple ligne dans le bloc */
-    background-color: transparent; /* Supprime le fond de la liste principale */
-    border-left: none; /* Supprime la bordure verte */
+    background-color: transparent;
+    border-left: none;
     border-radius: 0;
-    padding: 5px 0; /* Espacement minimal */
+    padding: 5px 0;
     margin-bottom: 5px;
-    list-style-type: disc; /* S'assure que le point est bien visible */
-    color: var(--text-secondary); /* Couleur pour le détail */
+    color: var(--text-secondary);
+    padding-left: 10px;
+    box-shadow: none;
 }
+
+.experience li ul li::marker,
+.education li ul li::marker {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
 
 /* ================================================================= */
 /* PROJECTS (MES JEUX)                                        */
@@ -170,57 +182,54 @@ section h2::after {
 .games-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    gap: 35px;
     padding: 20px 0;
 }
 
 .game-card {
-    background: var(--surface-color);
-    border: 1px solid rgba(72, 187, 120, 0.1);
-    border-radius: 12px;
+    background: var(--bg-color);
+    border: 1px solid #E9ECEF;
+    border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
-    position: relative;
 }
 
 .game-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(72, 187, 120, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
 }
 
 .game-card h2 {
     color: var(--accent-color);
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 1.6rem;
-    border-bottom: 1px solid rgba(72, 187, 120, 0.2);
+    font-size: 1.8rem;
+    border-bottom: 1px solid #DEE2E6;
     padding-bottom: 10px;
 }
 
 .game-card h2::after {
-    content: none; /* Supprimer la ligne de h2 de section */
+    content: none;
 }
 
 .game-card p {
     color: var(--text-secondary);
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .game-card iframe {
     width: 100%;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
 }
 
 .more-link {
     text-align: center;
-    margin-top: 50px;
-    font-size: 1.1rem;
+    margin-top: 60px;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
@@ -232,150 +241,124 @@ footer {
     background: var(--surface-color);
     color: var(--text-secondary);
     text-align: center;
-    padding: 1.5rem 0;
-    border-top: 1px solid rgba(72, 187, 120, 0.2);
+    padding: 2rem 0;
+    border-top: 1px solid #DEE2E6;
 }
 
 .social-media {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
     margin-top: 1rem;
 }
 
 .social-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    color: var(--text-color);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    background-color: var(--bg-color);
-    border: 1px solid var(--text-secondary);
+    font-size: 22px;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icon:hover {
-    transform: scale(1.1);
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    border-color: var(--accent-color);
+    transform: scale(1.2);
+    color: var(--accent-color);
 }
 
 .social-icon i {
-    font-size: 25px;
+    font-size: 28px;
 }
 
-/* Couleurs spécifiques - adaptées pour l'esthétique générale */
-.twitter { background-color: #1a1a1a; }
-.instagram { background-color: #1a1a1a; }
-.linkedin { background-color: #1a1a1a; }
-.github { background-color: #1a1a1a; }
-
+/* Suppression des styles de fond spécifiques */
+.twitter, .instagram, .linkedin, .github { background-color: transparent !important; }
 
 /* ================================================================= */
-/* UTILITAIRES & RESPONSIVE (Styles conservés et ajustés)     */
+/* UTILITAIRES & RESPONSIVE                                   */
 /* ================================================================= */
 
 code {
-    background: #1e1e1e;
-    color: var(--accent-color);
-    padding: 2px 6px;
-    border-radius: 4px;
+    background: #e9ecef;
+    color: var(--secondary-accent-color);
+    padding: 3px 7px;
+    border-radius: 5px;
     font-family: "Courier New", Courier, monospace;
-}
-
-/* Styles pour le menu déroulant (si utilisé) */
-.menu-title {
-    background-color: var(--surface-color) !important;
-    color: var(--text-color) !important;
-}
-.menu-title:hover {
-    background-color: #2a2a2a !important;
 }
 
 /* RESPONSIVE */
 @media only screen and (max-width: 768px) {
     section {
-        padding: 3rem 1rem;
+        padding: 3.5rem 1rem;
     }
-
-    .game-card {
-        padding: 20px;
+    
+    header h1 {
+        font-size: 1.8rem;
     }
 
     nav a {
         display: block;
-        margin: 0.5rem 0;
+        margin: 0.8rem 0;
+        font-size: 1rem;
     }
 
     nav a::after {
         content: none;
     }
+}
 
-    nav a:hover {
-        color: var(--accent-color);
-    }
+/* Alternating background for sections */
+section.alt-background {
+    background-color: var(--surface-color);
 }
 
 /* ================================================================= */
 /* MODÈLES 3D & IMAGES DE PRÉVISUALISATION                    */
 /* ================================================================= */
 
-/* Assure que l'élément model-viewer s'intègre parfaitement */
 model-viewer {
-    box-shadow: 0 0 10px rgba(72, 187, 120, 0.2); 
-    /* Le style height: 350px est défini dans le HTML pour une hauteur fixe */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Style les images statiques à l'intérieur des cartes pour correspondre à la hauteur du visualiseur */
 .image-card .model-preview-img {
     width: 100%;
-    height: 350px; /* Fixe la hauteur pour correspondre au model-viewer */
-    object-fit: cover; /* Assure que l'image couvre l'espace sans être déformée */
-    border-radius: 8px; /* Correspond au bord arrondi des autres cartes */
-    margin-top: 10px; /* Espace après la description */
-    transition: none; /* Désactive les transitions inutiles sur l'image */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 15px;
 }
 
-/* Règle pour l'harmonisation des titres des cartes images */
 .image-card h2 {
-    color: var(--text-color); /* Titre de l'image en blanc pour le différencier de l'accentuation 3D */
-    border-bottom: 1px solid var(--text-secondary);
+    color: var(--text-color);
+    border-bottom: 1px solid #DEE2E6;
 }
 
 /* ================================================================= */
 /* FULLSCREEN IMG                                             */
 /* ================================================================= */
 .fullscreen {
-    position: fixed; /* Assure que le conteneur reste fixe même en faisant défiler */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.98); /* Fond très sombre */
-    display: none; /* Caché par défaut, affiché par JavaScript */
+    background-color: rgba(255, 255, 255, 0.95); /* Fond blanc semi-transparent */
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 99999; /* Valeur très élevée pour être sûr qu'il couvre tout */
+    z-index: 99999;
 }
 
 #fullscreen-image {
     max-width: 90%;
     max-height: 90%;
-    object-fit: contain; /* L'image est contenue dans le conteneur sans être coupée */
-    box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
+    object-fit: contain;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
 
 .close {
     position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 40px;
-    color: var(--text-color);
+    top: 25px;
+    right: 45px;
+    font-size: 45px;
+    color: var(--text-secondary);
     cursor: pointer;
     transition: color 0.3s;
 }
