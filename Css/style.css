@@ -169,6 +169,143 @@ section h2::after {
     font-weight: bold;
 }
 
+/* ================================================================= */
+/* TIMELINE (EXPERIENCE)                                      */
+/* ================================================================= */
+
+.experience .timeline {
+    position: relative;
+    padding-left: 3rem;
+    margin-left: 0.5rem;
+    list-style: none;
+}
+
+/* The vertical line */
+.experience .timeline::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem; /* Center of the padding */
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 20px;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-color), var(--secondary-accent-color));
+    border-radius: 2px;
+}
+
+.experience .timeline > li {
+    position: relative;
+    border-left: none; /* Override default border */
+    margin-bottom: 30px;
+}
+
+/* The dot on the timeline */
+.experience .timeline > li::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem; /* Match the line's position relative to LI */
+    transform: translate(-50%, 0);
+    top: 25px;
+    width: 14px;
+    height: 14px;
+    background: var(--bg-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--bg-color); /* Cutout effect */
+}
+
+/* ================================================================= */
+/* TIMELINE (FORMATIONS)                                      */
+/* ================================================================= */
+
+.education .timeline {
+    position: relative;
+    padding-left: 3rem;
+    margin-left: 0.5rem;
+    list-style: none;
+}
+
+/* The vertical line */
+.education .timeline::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem; /* Center of the padding */
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 20px;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-color), var(--secondary-accent-color));
+    border-radius: 2px;
+}
+
+.education .timeline > li {
+    position: relative;
+    border-left: none; /* Override default border */
+    margin-bottom: 30px;
+}
+
+/* The dot on the timeline */
+.education .timeline > li::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem; /* Match the line's position relative to LI */
+    transform: translate(-50%, 0);
+    top: 25px;
+    width: 14px;
+    height: 14px;
+    background: var(--bg-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--bg-color); /* Cutout effect */
+}
+
+/* ================================================================= */
+/* TIMELINE (FORMATIONS)                                      */
+/* ================================================================= */
+
+.skills .timeline {
+    position: relative;
+    padding-left: 3rem;
+    margin-left: 0.5rem;
+    list-style: none;
+}
+
+/* The vertical line */
+.skills .timeline::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem; /* Center of the padding */
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 20px;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-color), var(--secondary-accent-color));
+    border-radius: 2px;
+}
+
+.skills .timeline > li {
+    position: relative;
+    border-left: none; /* Override default border */
+    margin-bottom: 30px;
+}
+
+/* The dot on the timeline */
+.skills .timeline > li::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem; /* Match the line's position relative to LI */
+    transform: translate(-50%, 0);
+    top: 25px;
+    width: 14px;
+    height: 14px;
+    background: var(--bg-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--bg-color); /* Cutout effect */
+}
 
 /* ================================================================= */
 /* PROJECTS (MES JEUX)                                        */
@@ -300,6 +437,19 @@ code {
 
     nav a::after {
         content: none;
+    }
+
+    .experience .timeline {
+        padding-left: 2rem;
+        margin-left: 0;
+    }
+
+    .experience .timeline::before {
+        left: 1rem;
+    }
+
+    .experience .timeline > li::before {
+        left: -1rem;
     }
 }
 
